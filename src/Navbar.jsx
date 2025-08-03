@@ -16,8 +16,7 @@ import Divider from "@mui/material/Divider";
 import SearchIcon from "@mui/icons-material/Search";
 import DirectionsIcon from "@mui/icons-material/Directions";
 import LockPersonIcon from "@mui/icons-material/LockPerson";
-import { Link } from "@mui/material";
-import { Modal } from "antd";
+import { Link, Dialog, DialogTitle, DialogContent } from "@mui/material";
 import Loginpage from "./Loginpage";
 // Navbar component now uses React Router for navigation
 const Navbar = ({ darkMode, toggleDarkMode, isLogin, setIsLogin }) => {
@@ -119,36 +118,33 @@ const Navbar = ({ darkMode, toggleDarkMode, isLogin, setIsLogin }) => {
             </Button>
           </div>
         </Toolbar>
-        <Modal
-          title={
-            <span className="login-title">
+        <Dialog open={isModalOpen} onClose={() => setIsModalOpen(false)} maxWidth="sm" fullWidth>
+          <DialogTitle>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+              <LockPersonIcon
+                sx={{
+                  fontSize: "2rem",
+                  color: "white",
+                  background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                  padding: "0.5rem",
+                  borderRadius: "50%",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: "3rem",
+                  height: "3rem"
+                }}
+              />
               <div>
-                <LockPersonIcon
-                  className="login-icon"
-                  sx={{
-                    fontSize: "2rem",
-                    color: "white",
-                    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-                    padding: "0.5rem",
-                    borderRadius: "50%",
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    width: "3rem",
-                    height: "3rem"
-                  }}
-                />
+                <div>Login</div>
+                <div style={{ fontSize: "0.8rem", color: "#666" }}>#Sign-in for more features and job details</div>
               </div>
-              Login
-              <span className="login-subtitle">#Sign-in for more features and job details</span>
-            </span>
-          }
-          footer={null}
-          open={isModalOpen}
-          onCancel={() => setIsModalOpen(false)}
-        >
-          <Loginpage setIsSubmit={handleLoginSuccess} />
-        </Modal>
+            </div>
+          </DialogTitle>
+          <DialogContent>
+            <Loginpage setIsSubmit={handleLoginSuccess} />
+          </DialogContent>
+        </Dialog>
       </AppBar>
     </Box>
   );

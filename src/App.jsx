@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Navbar";
-import JobsPage from "./JobsPage";
+import JobsPage from "./Jobspage";
 import HomePage from "./Homepage";
 import JobDetailPage from "./Jobdetailpage";
 import Footer from "./Footer";
