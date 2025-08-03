@@ -1,0 +1,7 @@
+@import "./globals.css";
+@import "./components/Navbar.css";
+@import "./components/JobsPage.css";
+@import "./pages/HomePage.css";
+@import "./pages/JobDetailPage.css";
+@import "./pages/LoginPage.css";
+@import "./utilities/dark-mode.css";

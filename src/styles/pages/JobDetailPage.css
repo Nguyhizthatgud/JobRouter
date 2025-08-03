@@ -1,0 +1,94 @@
+/* Job Detail Page Styles */
+.page {
+  animation: fadeIn 0.5s ease-in;
+  padding-top: 5rem;
+  min-height: 100vh;
+  overflow-y: auto; /* Allow vertical scrolling */
+  position: relative; /* Ensure proper positioning */
+}
+.back-btn {
+  background: transparent;
+  border: 2px solid var(--background-light);
+  color: var(--background-light);
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: var(--transition);
+}
+
+.back-btn:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+.job-detail {
+  background: var(--background-white);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+  color: var(--text-primary);
+}
+
+.job-detail h1 {
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  font-size: 2.2rem;
+}
+
+.job-info {
+  background: var(--background-light);
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.job-info p {
+  margin-bottom: 0.5rem;
+}
+
+.job-description,
+.job-requirements {
+  margin-bottom: 2rem;
+}
+
+.job-description h3,
+.job-requirements h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.job-requirements ul {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(200px, 1fr));
+  gap: 1rem;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.job-requirements li {
+  background: #e8f2ff;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 25px;
+  border-left: 4px solid var(--primary-color);
+}
+
+.apply-btn {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.apply-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}

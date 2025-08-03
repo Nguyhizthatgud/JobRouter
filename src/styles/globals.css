@@ -1,0 +1,153 @@
+/* Global reset and base styles */
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
+
+/* CSS Variables for Design System */
+:root {
+  --primary-color: #667eea;
+  --secondary-color: #764ba2;
+  --accent-color: #f5576c;
+  --text-primary: #333;
+  --text-secondary: #666;
+  --background-light: #f8f9fa;
+  --background-white: #ffffff;
+  --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+  --border-radius: 15px;
+  --transition: all 0.3s ease;
+}
+
+/* Dark mode variables */
+[data-theme="dark"],
+.dark-mode {
+  --text-primary: #ffffff;
+  --text-secondary: #b3b3b3;
+  --background-light: #121212;
+  --background-white: #1e1e1e;
+  --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--background-light);
+  transition: var(--transition);
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-light);
+  color: var(--text-primary);
+  transition: var(--transition);
+  position: relative; /* Create stacking context */
+  overflow: hidden; /* Prevent app-level scrolling */
+}
+
+/* Light mode specific styles */
+.light-mode {
+  background: url("/annie-spratt-QckxruozjRg-unsplash.jpg") no-repeat center fixed;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  width: 100%;
+  z-index: -2;
+  position: absolute; /* Position background absolutely */
+  top: 0;
+  left: 0;
+}
+
+.light-mode::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2); /* Lowered opacity from 0.4 to 0.2 */
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Dark mode specific styles */
+.dark-mode {
+  background: linear-gradient(135deg, #121212 0%, #1e1e1e 100%);
+  color: var(--text-primary);
+}
+
+.dark-mode .feature-card,
+.dark-mode .job-card,
+.dark-mode .job-detail,
+.dark-mode .about-content,
+.dark-mode .contact-content {
+  background-color: var(--background-white);
+  color: var(--text-primary);
+}
+
+.dark-mode .hero-section {
+  background: linear-gradient(135deg, #6a5acd 0%, #8b008b 100%);
+}
+
+.dark-mode .job-info {
+  background-color: #2a2a2a;
+}
+
+.dark-mode .job-requirements li {
+  background: #1a237e;
+  color: var(--text-primary);
+}
+
+/* Global utility classes */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  z-index: 1;
+  position: relative; /* Ensure content is above background */
+  overflow-y: auto; /* Allow content to scroll independently */
+  height: calc(100vh - 80px); /* Subtract navbar height for proper scrolling */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 1rem;
+    height: calc(100vh - 60px); /* Adjust for smaller navbar on mobile */
+  }
+
+  .light-mode .main-content {
+    margin: 0.5rem;
+    padding: 1.5rem;
+    border-radius: 15px;
+  }
+
+  .light-mode::before {
+    background-size: cover;
+    background-position: center center;
+  }
+}

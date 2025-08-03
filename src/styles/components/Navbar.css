@@ -1,0 +1,55 @@
+/* Navigation Styles */
+.Navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+.login-title {
+  display: flex;
+  padding: 0.5rem 1rem;
+  font-family: "Tahoma", serif;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.login-subtitle {
+  color: var(--text-secondary);
+  font-weight: lighter;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+.nav-brand h2 {
+  color: var(--text-primary, #ffffff);
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-btn {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+.nav-btn.active {
+  background: white;
+  color: #667eea;
+  border-color: white;
+}

@@ -1,0 +1,22 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 60px;
+  background-color: var(--background-white);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+.footer-text {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  -webkit-background-clip: text; /* 1. Clip background to text shape */
+  -webkit-text-fill-color: transparent; /* 2. Make text transparent */
+  background-clip: text; /* 3. Standard property (newer browsers) */
+  font-size: 0.9rem;
+  font-weight: 500;
+}
