@@ -1,7 +1,7 @@
 import React, { useMemo, useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import Pagination from "@mui/material/Pagination";
-import { Snackbar, Alert } from "@mui/material";
+import { notification } from "antd";
 import Stack from "@mui/material/Stack";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import jobList from "./joblist";
@@ -10,6 +10,7 @@ const JobsPage = ({ isLogin }) => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const [pagination, setPagination] = useState(1);
+  const [api, contextHolder] = notification.useNotification();
 
   let jobsPerPage = 6;
 
@@ -30,31 +31,21 @@ const JobsPage = ({ isLogin }) => {
     setPagination(1);
   }, [searchParams]);
 
-  const [snackbarOpen, setSnackbarOpen] = useState(false);
-
   const openNotification = () => {
-    setSnackbarOpen(true);
+    api.info({
+      message: `Login Required Bruh?`,
+      description: `Đăng nhập trước rồi xem gì thì xem nhé anh.`,
+      placement: "topRight"
+    });
   };
 
-  const handleCloseSnackbar = () => {
-    setSnackbarOpen(false);
-  };
   const handlePageChange = (event, page) => {
     setPagination(page);
   };
 
   return (
     <div className="page">
-      <Snackbar
-        open={snackbarOpen}
-        autoHideDuration={6000}
-        onClose={handleCloseSnackbar}
-        anchorOrigin={{ vertical: "top", horizontal: "right" }}
-      >
-        <Alert onClose={handleCloseSnackbar} severity="info" variant="filled">
-          Login Required Bruh? Đăng nhập trước rồi xem gì thì xem nhé anh.
-        </Alert>
-      </Snackbar>
+      {contextHolder}
       <div className="title">
         <p>Available Jobs</p>
         {searchParams.get("search") && (
